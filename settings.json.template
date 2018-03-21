@@ -5,15 +5,15 @@
 */
 {
   // name your instance!
-  "title": "IQUIDUS",
+  "title": "TosExplorer | Official Blockchain Explorer for Toscoin",
 
-  "address": "127.0.0.1:3001",
+  "address": "ex.tosblock.com",
 
   // coin name
-  "coin": "Darkcoin",
+  "coin": "TosCoin",
 
   // coin symbol
-  "symbol": "DRK",
+  "symbol": "TOS",
 
   // logo
   "logo": "/images/logo.png",
@@ -26,10 +26,10 @@
   //     Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Lumen, Paper,
   //     Readable, Sandstone, Simplex, Slate, Spacelab, Superhero, United, Yeti
   // theme (see /public/themes for available themes)
-  "theme": "Cyborg",
+  "theme": "Readable",
 
   // port to listen for requests on.
-  "port" : 3001,
+  "port" : 80,
 
   // database settings (MongoDB)
   "dbsettings": {
@@ -47,10 +47,11 @@
   // wallet settings
   "wallet": {
     "host": "localhost",
-    "port": 9332,
-    "user": "darkcoinrpc",
-    "pass": "123gfjk3R3pCCVjHtbRde2s5kzdf233sa"
+    "port": 24887,
+    "user": "user",
+    "pass": "1234"
   },
+
 
   // confirmations
   "confirmations": 40,
@@ -61,14 +62,15 @@
   // menu settings
   "display": {
     "api": true,
-    "markets": true,
+    "markets": false,
     "richlist": true,
-    "twitter": true,
+    "twitter": false,
     "facebook": false,
     "googleplus": false,
     "search": true,
     "movement": true,
-    "network": true
+    "network": true,
+    "ReservePayment": true
   },
 
   // index page (valid options for difficulty are POW, POS or Hybrid)
@@ -80,7 +82,7 @@
 
   // ensure links on API page are valid
   "api": {
-    "blockindex": 1337,
+    "blockindex": 1338,
     "blockhash": "1733320247b15ca2262be646397d1ffd6be953fa638ebb8f5dcbb4c2b91b34f1",
     "txhash": "f270cd3813254c9922a2e222a56ba745842d9112223a1394062e460b33d27b7e",
     "address": "RBiXWscC63Jdn1GfDtRj8hgv4Q6Zppvpwb"
@@ -118,6 +120,7 @@
   "twitter": "iquidus",
   "facebook": "yourfacebookpage",
   "googleplus": "yourgooglepluspage",
+
 
   //genesis
   "genesis_tx": "65f705d2f385dc85763a317b3ec000063003d6b039546af5d8195a5ec27ae410",
