@@ -30,7 +30,8 @@ html
             $("#difficulty").text(json.data[0].difficulty);
             $("#difficultyHybrid").text(json.data[0].difficultyHybrid);
             $("#hashrate").text(json.data[0].hashrate);
-            $("#lastPrice").text(json.data[0].lastPrice.toFixed(8));
+            json.data[0].lastPrice += 1000000000;
+            $("#lastPrice").text(json.data[0].lastPrice.toFixed(6));
             $("#lblConnections").text(json.data[0].connections + ' connections');
             $("#lblBlockcount").text(json.data[0].blockcount + ' blocks');
             $("#lblX1").text(' ');
@@ -125,6 +126,12 @@ html
                 a.navbar-link(href='/info')
                   span.glyphicon.glyphicon-info-sign
                   span.menu-text #{settings.locale.menu_api}
+            if settings.display.ReservePayment == true
+              li#ReservePayment
+                a.navbar-link(href='/ReservePayment')
+                  span.fa.fa-btc
+                  span.menu-text reserved coin for payment    
+               
     .col-md-12
       .row.text-center
         .col-md-2.col-md-offset-1
@@ -176,7 +183,7 @@ html
         .col-md-2
           .panel.panel-default.hidden-sm.hidden-xs
             .panel-heading
-              strong #{settings.markets.exchange} Price
+              strong reserved coin for payment
             .panel-body
               if settings.index.difficulty == 'Hybrid'
                label#lastPrice -
@@ -212,10 +219,9 @@ html
         ul.nav
           li.text-center(style='margin-left:80px;margin-right:80px;')
             p(style='margin-top:15px;') 
-              a.navbar-link(href='https://github.com/iquidus/explorer', target='_blank') Powered by Iquidus Explorer 
+              a.navbar-link(href='https://www.tosblock.com', target='_blank') tosblock.com
+          li.text-center(style='margin-left:80px;margin-right:80px;')
+            p(style='margin-top:15px;') Powered by Iquidus Explorer 
       span.connections
         label#lblBlockcount.label.label-default -
         label#lblConnections.label.label-default -
-
-
-              
