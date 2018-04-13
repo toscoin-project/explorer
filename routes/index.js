@@ -153,38 +153,44 @@ router.get('/markets/:market', function(req, res) {
   }
 });
 
+
 router.get('/richlist', function(req, res) {
-  if (settings.display.richlist == true ) {
-    db.get_stats(settings.coin, function (stats) {
-      db.get_richlist(settings.coin, function(richlist){
-        //console.log(richlist);
-        if (richlist) {
-          db.get_distribution(richlist, stats, function(distribution) {
-            //console.log(distribution);
-            res.render('richlist', {
-              active: 'richlist',
-              balance: richlist.balance,
-              received: richlist.received,
-              stats: stats,
-              dista: distribution.t_1_25,
-              distb: distribution.t_26_50,
-              distc: distribution.t_51_75,
-              distd: distribution.t_76_100,
-              diste: distribution.t_101plus,
-              show_dist: settings.richlist.distribution,
-              show_received: settings.richlist.received,
-              show_balance: settings.richlist.balance,
-            });
-          });
-        } else {
-          route_get_index(res, null);
-        }
-      });
-    });
-  } else {
-    route_get_index(res, null);
-  }
+	res.redirect('/');
 });
+
+
+router.get('/ReservePayment', function(req, res) {
+	  if (settings.display.richlist == true ) {
+	    db.get_stats(settings.coin, function (stats) {
+	      db.get_richlist(settings.coin, function(richlist){
+	        //console.log(richlist);
+	        if (richlist) {
+	          db.get_distribution(richlist, stats, function(distribution) {
+	            //console.log(distribution);
+	            res.render('ReservePayment', {
+	              active: 'ReservePayment',
+	              balance: richlist.balance,
+	              received: richlist.received,
+	              stats: stats,
+	              dista: distribution.t_1_25,
+	              distb: distribution.t_26_50,
+	              distc: distribution.t_51_75,
+	              distd: distribution.t_76_100,
+	              diste: distribution.t_101plus,
+	              show_dist: settings.richlist.distribution,
+	              show_received: settings.richlist.received,
+	              show_balance: settings.richlist.balance,
+	            });
+	          });
+	        } else {
+	          route_get_index(res, null);
+	        }
+	      });
+	    });
+	  } else {
+	    route_get_index(res, null);
+	  }
+	});
 
 router.get('/movement', function(req, res) {
   res.render('movement', {active: 'movement', flaga: settings.movement.low_flag, flagb: settings.movement.high_flag, min_amount:settings.movement.min_amount});
