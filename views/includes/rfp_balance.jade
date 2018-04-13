@@ -1,0 +1,24 @@
+.panel.panel-default
+  .panel-heading
+    h3.panel-title Reserved coin for paymont
+  table.table.table-hover.table-bordered(cellspacing="0")
+    thead
+      tr
+        th(style='text-align:center;') 
+          span.fa.fa-flag-checkered
+        th #{settings.locale.tx_address} 
+        th.hidden-xs #{settings.locale.rl_received} (#{settings.symbol})
+    tbody
+      - var count = 0
+      #{ receiveds = ['TcCajdGoxgaRhz7drdYSWuDQ1k8c9i6szX', 'ThzuuY3PdnPsmsJs7bYDzwWQj42pWdHvsS', 'TkzhqmKGYVLF4h8GWpiB7aP1qyqBfBG7kU', 'TxVEaALFpjiaGGmtXKDVgesWLP48FpCkVc', 'TgZyQFC2nMWdRQJZBfJt39kVdZDK96xfFZ', 'TkHojsDdj1TVFxVWxQg5MYa7mEAtD5Sh6w', 'TmzqBaitXSg4CvSBqRcrEtb4t87j5AT34d', 'Tr5r4KN2oBkZdzAezuX8Z8kz3YjGEcdnna', 'TqnBcaWeZdf6Woc2Upij9w6bXAALFV9Lqb', 'TdWHKTc3HfML8EQsH6NfNkVokRiyeZZEP1', 'TqMtdPA4KwQAaWwCpgkEcwbLsH7u75hubb', 'TxGeA1BovJwxgUeUZH1LDg22NL5pAkpf9Z', 'TvM7vUZDGaKa65qUDjh5ARyXkR3K384Rxf', 'Tc3uaF3daM6Qqav4sq9VtnfmYGntFxiLw7', 'TfBi3hdYwNo9PCEswNriU5kuC1KyYoAoFj', 'TeKhqHbmeMujNTuSFv8BqhRPAH5sGqBG5S', 'TdJ2x2oo3zuDLdeQ5sdbtenyYupDeA4BDv', 'Tg2dU9HHXVkz2EJgGwxWPuJx5G51cbdgKY', 'TcS8UWcUEsiwgkZFyDQG37mpEJg8CsYZtt', 'Tw2w9YeCPCLLYvHBWiKaWomLZ2tDXwwtp2'] }
+      each item in receiveds
+        - count = count + 1
+        - var itemFixed = 50000000
+        tr
+          td(style='text-align:center;') 
+            =count
+          td
+            a(href='/address/#{item}') #{item}
+            include ./rl_labels.jade
+          td.hidden-xs
+            =itemFixed.toFixed(8)
