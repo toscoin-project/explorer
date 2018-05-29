@@ -10,7 +10,7 @@
         th.hidden-xs #{settings.locale.rl_balance} (#{settings.symbol})
         th.hidden-xs(style='text-align:center;') %
     tbody
-      - var count = 0
+      - var count = 1
       each item in balance
         - count = count + 1
         - var itemFixed = item.balance / 100000000
